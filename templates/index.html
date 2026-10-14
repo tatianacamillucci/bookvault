@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BookVault Control Panel</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <main class="page">
+    <section class="card controls">
+      <h1>BookVault - Control Panel</h1>
+      <p>Avvia Scout/Critic e monitora output dal browser.</p>
+
+      <form method="post" class="form-grid">
+        <label>
+          Latitudine
+          <input type="text" name="lat" value="{{ lat }}" required>
+        </label>
+        <label>
+          Longitudine
+          <input type="text" name="lng" value="{{ lng }}" required>
+        </label>
+        <label>
+          Raggio (m)
+          <input type="number" name="radius" value="{{ radius }}" min="100" step="100" required>
+        </label>
+
+        <div class="actions">
+          <button type="submit" name="action" value="check">System Check</button>
+          <button type="submit" name="action" value="scout">Run Scout</button>
+          <button type="submit" name="action" value="critic">Run Critic</button>
+          <button type="submit" name="action" value="full" class="primary">Run Full Pipeline</button>
+        </div>
+      </form>
+
+      <div class="status-row">
+        <span>Stato:</span>
+        <strong>{{ status }}</strong>
+      </div>
+
+      {% if error %}
+      <p class="error">Errore: {{ error }}</p>
+      {% endif %}
+    </section>
+
+    <section class="card output">
+      <h2>Output</h2>
+      <pre>{{ output }}</pre>
+    </section>
+  </main>
+</body>
+</html>

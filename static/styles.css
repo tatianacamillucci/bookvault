@@ -1,0 +1,146 @@
+:root {
+  --bg: #f2efe9;
+  --panel: #fffdf8;
+  --text: #1f1f1f;
+  --muted: #5d5d5d;
+  --accent: #165a4a;
+  --accent-hover: #12473a;
+  --border: #dfd7c9;
+  --danger: #b42318;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background:
+    radial-gradient(circle at 20% 10%, #fff8eb 0%, transparent 35%),
+    radial-gradient(circle at 80% 90%, #e5f7ef 0%, transparent 30%),
+    var(--bg);
+  color: var(--text);
+}
+
+.page {
+  width: min(1100px, 94vw);
+  margin: 2rem auto;
+  display: flex;
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.controls {
+  flex: 1 1 360px;
+}
+
+.output {
+  flex: 2 1 620px;
+  display: flex;
+  flex-direction: column;
+}
+
+h1, h2 {
+  margin: 0 0 0.6rem;
+}
+
+p {
+  margin: 0 0 1rem;
+  color: var(--muted);
+}
+
+.form-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 0.95rem;
+}
+
+input {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.65rem 0.7rem;
+  font-size: 0.95rem;
+  background: #ffffff;
+}
+
+.actions {
+  margin-top: 0.3rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+button {
+  border: 1px solid var(--accent);
+  background: transparent;
+  color: var(--accent);
+  border-radius: 10px;
+  padding: 0.55rem 0.85rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+button:hover {
+  background: #eaf5f2;
+}
+
+button.primary {
+  background: var(--accent);
+  color: #fff;
+}
+
+button.primary:hover {
+  background: var(--accent-hover);
+}
+
+.status-row {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.error {
+  margin-top: 0.8rem;
+  color: var(--danger);
+  font-weight: 600;
+}
+
+pre {
+  margin: 0;
+  flex: 1;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #faf7f1;
+  padding: 0.75rem;
+  overflow: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+  min-height: 360px;
+}
+
+@media (max-width: 900px) {
+  .page {
+    flex-direction: column;
+  }
+
+  .output {
+    min-height: 360px;
+  }
+}
